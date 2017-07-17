@@ -26,7 +26,14 @@ public class PetRockTest {
     }
 
     @Test (expected = IllegalStateException.class)
-    public void printHappyMessageTest() throws IllegalStateException {
-        rocky.printHappyMessage();
+    public void printHappyMessageThrows() throws IllegalStateException {
+        rocky.getHappyMessage();
+    }
+
+    @Test
+    public void printHappyMessageReturns() throws IllegalStateException {
+        rocky.playWithToy();
+        String message = "I am happy";
+        assertEquals(message, rocky.getHappyMessage());
     }
 }
