@@ -1,4 +1,3 @@
-import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -26,5 +25,8 @@ public class PetRockTest {
         assertTrue(rocky.isHappy());
     }
 
-
+    @Test (expected = IllegalStateException.class)
+    public void printHappyMessageTest() throws IllegalStateException {
+        rocky.printHappyMessage();
+    }
 }
