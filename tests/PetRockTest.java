@@ -1,3 +1,4 @@
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -7,7 +8,12 @@ import static org.junit.Assert.*;
  */
 public class PetRockTest {
 
-    private PetRock rocky = new PetRock("Rocky");
+    private PetRock rocky;
+
+    @Before
+    public void setUp() {
+        rocky = new PetRock("Rocky");
+    }
 
     @Test
     public void getName() throws Exception {
@@ -26,19 +32,20 @@ public class PetRockTest {
     }
 
     @Test (expected = IllegalStateException.class)
-    public void printHappyMessageThrows() throws IllegalStateException {
+    public void printHappyMessageThrowsISE() throws IllegalStateException {
         rocky.getHappyMessage();
     }
 
     @Test
-    public void printHappyMessageReturns() throws IllegalStateException {
+    public void printHappyMessageReturnsMessage() throws IllegalStateException {
         rocky.playWithToy();
         String message = "I am happy";
         assertEquals(message, rocky.getHappyMessage());
     }
 
     @Test (expected = IllegalStateException.class)
-    public void noName(){
+    public void emptyName(){
         PetRock rocky = new PetRock("");
     }
+
 }
