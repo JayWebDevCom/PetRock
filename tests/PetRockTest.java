@@ -36,4 +36,9 @@ public class PetRockTest {
         String message = "I am happy";
         assertEquals(message, rocky.getHappyMessage());
     }
+
+    @Test (expected = IllegalStateException.class)
+    public void noName(){
+        PetRock rocky = new PetRock("");
+    }
 }
